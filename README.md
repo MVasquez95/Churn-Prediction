@@ -2,76 +2,87 @@
 
 ## 📝 Descripción
 Este proyecto busca predecir qué clientes de una empresa de telecomunicaciones están en riesgo de **cancelar el servicio (churn)**.  
-La predicción de churn permite a las empresas **anticiparse y tomar acciones de retención**, reduciendo pérdidas económicas.
+El objetivo es ayudar a la empresa a **anticipar la pérdida de clientes y tomar decisiones estratégicas de retención**, reduciendo pérdidas económicas.
 
 ---
 
 ## 📂 Dataset
-- Fuente: [Kaggle – Telco Customer Churn](https://www.kaggle.com/blastchar/telco-customer-churn)  
+- 📌 [Dataset en Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)  
 - Registros: ~7,000 clientes  
-- Variables: datos demográficos, servicios contratados, facturación mensual y si el cliente canceló o no.
+- Variables: datos demográficos, servicios contratados, facturación mensual y si el cliente canceló o no.  
 
 ---
 
 ## ⚙️ Proceso
-1. **Exploración y limpieza de datos**
-   - Manejo de valores nulos y outliers.
-   - Codificación de variables categóricas.
-   - Normalización de variables numéricas.
 
-2. **Feature Engineering**
-   - Creación de variable "tenure groups" (antigüedad del cliente).
-   - Variables binarias (servicio de internet, contrato mensual, etc.).
+1. **Preprocesamiento**
+   - Revisión de valores nulos y outliers.  
+   - Codificación de variables categóricas mediante **One-Hot Encoding (OHE)**.  
+   - Escalado de variables numéricas para modelos sensibles (Logistic Regression, SVM, KNN).  
+
+2. **Análisis exploratorio**
+   - Distribución de clientes que permanecen vs. churn.  
+   - Análisis de variables categóricas y numéricas.  
+   - Tablas de frecuencia y visualizaciones descriptivas.  
 
 3. **Modelado**
    - Modelos probados:
-     - Logistic Regression
-     - Random Forest
-     - XGBoost
-   - Validación cruzada (5 folds).
-   - Balanceo de clases con **SMOTE**.
+     - Logistic Regression ✅ (modelo final)  
+     - Gradient Boosting  
+     - SVM  
+     - Random Forest  
+     - Decision Tree  
+     - AdaBoost  
+     - KNN  
+     - Voting Classifier  
+   - Validación cruzada y comparación con métricas estándar.  
+   - Revisión de **balance de clases** (SMOTE y weighting).  
 
 4. **Evaluación**
-   - Métricas: Accuracy, Precision, Recall, F1-score, ROC-AUC.
-   - Curva ROC para comparar modelos.
+   - Métricas utilizadas:  
+     - Accuracy  
+     - Precision  
+     - Recall  
+     - F1-Score  
+   - Comparación tabular entre modelos.  
+   - Matriz de confusión para interpretar errores del modelo final.  
 
 ---
 
 ## 📊 Resultados
-- **Modelo final**: XGBoost  
-- **ROC-AUC**: 0.85  
-- **F1-score**: 0.79  
-- Variables más importantes:
-  - Tipo de contrato (mensual → más riesgo de churn).
-  - Antigüedad (clientes nuevos → más riesgo).
-  - Facturación mensual.
+- **Mejor modelo:** Logistic Regression  
+- **Métricas obtenidas:**  
+  - Accuracy: **0.8071**  
+  - Precision: **0.6591**  
+  - Recall: **0.5686**  
+  - F1-Score: **0.6105**  
+
+📌 Observación: Logistic Regression logró un **equilibrio entre simplicidad e interpretabilidad**, mostrando mejor rendimiento que modelos más complejos.  
 
 ---
 
-## 🚀 Demo
-- 📒 [Notebook interactivo](notebook.ipynb)  
-- 🌐 [Demo en Streamlit](https://tu-streamlit-app-url)  
-- ⚡ [API con FastAPI (ejemplo)](https://github.com/tu-usuario/ml-portfolio/projects/01-customer-churn/app.py)  
+## 🚀 Recursos
+- 📒 [Notebook en Kaggle](https://www.kaggle.com/code/crowwick/customer-churn-prediction-with-logistic-regression/notebook)  
+- 📂 [Dataset en Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)  
 
 ---
 
 ## 🛠️ Tech Stack
-- Python (Pandas, NumPy, scikit-learn, XGBoost)  
-- Matplotlib, Seaborn (visualización)  
-- Streamlit (demo interactiva)  
-- FastAPI + Docker (API de predicciones)
+- **Python** (Pandas, NumPy, scikit-learn)  
+- **Matplotlib, Seaborn** (visualización)  
+- **Jupyter Notebook / Kaggle Notebooks**  
 
 ---
 
-## 📸 Capturas
-### Curva ROC
-![ROC Curve](images/roc_curve.png)
-
-### Demo en Streamlit
-![Demo App](images/demo_streamlit.png)
+## 🔮 Próximos pasos (Future Work)
+- Incluir métricas adicionales: **ROC-AUC** y curva ROC.  
+- Implementar **Streamlit app** para predicciones interactivas.  
+- Desplegar un **API con FastAPI o Flask** para integrar el modelo en producción.  
+- Probar técnicas avanzadas de **feature engineering** y selección de variables.  
+- Explorar modelos más robustos como **XGBoost o LightGBM**.  
 
 ---
 
 ## 📬 Contacto
-👨‍💻 Autor: [Tu Nombre](https://www.linkedin.com/in/tu-usuario)  
-📧 Email: tu-email@ejemplo.com
+👨‍💻 Autor: **Miguel Arnaldo Martín Vásquez León**  
+📧 Email: **m.m.a.vasquez.leon@gmail.com**
